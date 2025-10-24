@@ -1,1 +1,12 @@
-<p>banner works!</p>
+<div class="container my-5">
+  <div class="row g-3">
+   @for (banner of banners; track $index) {
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm h-100">
+      <img [src]="banner.image" class="card-img-top" alt="Banner Image">
+      <div class="card-body text-center">
+        <h6 class="card-title">{{ banner.text }}</h6>
+      </div>
+    </div>
+  </div>
+}
