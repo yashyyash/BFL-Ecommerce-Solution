@@ -1,1 +1,16 @@
-<p>categories-list works!</p>
+<div class="container text-center mt-4">
+  <h2 class="mb-4">Categories</h2>
+  <div class="row g-3">
+    @for (cat of categories; track cat._id) {
+      <div class="col-md-3 col-sm-6">
+        <div class="card h-100 shadow-sm border-0 rounded-3">
+          <img [src]="cat.image" class="card-img-top" [alt]="cat.name" />
+          <div class="card-body">
+            <h5 class="card-title">{{ cat.name }}</h5>
+            <p class="text-muted small">{{ cat.slug }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
