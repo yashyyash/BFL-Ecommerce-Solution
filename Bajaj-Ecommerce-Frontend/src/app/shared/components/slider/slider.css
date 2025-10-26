@@ -1,8 +1,62 @@
-.carousel-item img {
-  height: 50vh;
-  object-fit: cover;
+/* Container */
+#promoCarousel {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
 }
-.carousel-caption {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+
+/* Slide styling with fade effect */
+.slide-item {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Gradient overlay with multiple stops */
+.slide-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.85),   /* Darkest */
+    rgba(0,0,0,0.7),    /* Darker */
+    rgba(0,0,0,0.55),   /* Dark */
+    rgba(0,0,0,0.4),    /* Light */
+    rgba(0,0,0,0.25),   /* Lighter */
+    rgba(0,0,0,0.1),    /* Lightest */
+    rgba(0,0,0,0)       /* Transparent */
+  );
+  z-index: 1;
+}
+/* Text above overlay */
+.slide-item h2 {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+/* Colors (Bootswatch sketchy like) */
+.bg-yellow { background-color: #f6c90e; }
+.bg-blue { background-color: #1f77b4; }
+.bg-green { background-color: #28a745; }
+.bg-red { background-color: #dc3545; }
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  .slide-item {
+    height: 130px;
+    font-size: 1rem;
+  }
 }
