@@ -19,12 +19,12 @@
             ],
             "tsConfig": "tsconfig.app.json",
            "assets": [
-  {
-    "glob": "**/*",
-    "input": "public",
-    "output": "/"
-  }
-],
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "/"
+              }
+            ],
             "styles": [
                "bootstrap/dist/css/bootstrap.min.css",
                "bootswatch/dist/lux/bootstrap.min.css",

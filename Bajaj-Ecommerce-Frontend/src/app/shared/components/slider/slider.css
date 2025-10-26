@@ -1,5 +1,5 @@
 .carousel-item img {
-  height: 400px;
+  height: 50vh;
   object-fit: cover;
 }
 .carousel-caption {

@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Banner {
     banners = [
-    { image: '/BigSale.png', text: 'Big Sale' },
+    { image: '/ShoppingImages.png', text: 'Big Sale' },
     { image: '/Black-Friday.png', text: 'Black Friday' },
     { image: '/home&kitchen.png', text: 'Home & Kitchen' },
     { image: '/SmartPhones.png', text: 'Smart Phones' }
