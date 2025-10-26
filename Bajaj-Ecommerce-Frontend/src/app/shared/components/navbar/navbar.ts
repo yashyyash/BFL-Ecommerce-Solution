@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../../features/categories/service/category-service';
 import { Category } from '../../../features/categories/model/category-model';
 import { SideNavbar } from "../side-navbar/side-navbar";
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, SideNavbar],
+  imports: [CommonModule, SideNavbar,RouterModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'],
 })
@@ -26,3 +26,4 @@ export class Navbar implements OnInit {
     });
   }
 }
+

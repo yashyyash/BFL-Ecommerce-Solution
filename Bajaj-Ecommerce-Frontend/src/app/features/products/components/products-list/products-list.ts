@@ -3,6 +3,8 @@ import { ProductApiService } from '../../service/product-api-service';
 import { Product } from '../../model/product-model';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ProductDetail } from '../product-detail/product-detail';
+import { ActivatedRoute } from '@angular/router';
+import { Footer } from "../../../../shared/components/footer/footer";
 
 @Component({
   selector: 'app-products-list',
@@ -11,12 +13,14 @@ import { ProductDetail } from '../product-detail/product-detail';
   standalone: true,
   imports: [
     CommonModule, // Provides NgFor, NgIf
-    DecimalPipe,  // Provides number pipe
+    DecimalPipe, // Provides number pipe
     ProductDetail,
-  ],
+    Footer
+],
 })
 export class ProductsList implements OnInit {
   // Inject service using function injection
+  private _route = inject(ActivatedRoute);
   private _productApi = inject(ProductApiService);
   @Input() productId!: string;
   products: Product[] = [];
