@@ -30,11 +30,12 @@ import { CategoryService } from '../../service/category-service';
 import { Category } from '../../model/category-model';
 import { CommonModule } from '@angular/common';
 import { CategoryDetail } from '../category-detail/category-detail';
+import { Footer } from "../../../../shared/components/footer/footer";
 
 @Component({
   selector: 'app-category-list',
   standalone: true,
-  imports: [CommonModule, CategoryDetail],
+  imports: [CommonModule, CategoryDetail, Footer],
   templateUrl: './categories-list.html',
   styleUrl: './categories-list.css',
 })

@@ -2,6 +2,7 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ProductApiService } from '../../service/product-api-service';
 import { Product } from '../../model/product-model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,6 +12,7 @@ import { Product } from '../../model/product-model';
   imports: [CommonModule, DecimalPipe],
 })
 export class ProductDetail implements OnInit {
+  private _route = inject(ActivatedRoute);
   @Input() productId!: string;  // The ID passed from product list
 
   private productApi = inject(ProductApiService);
