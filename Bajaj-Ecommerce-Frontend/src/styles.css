@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+/* Desktop default: normal offcanvas */
+.offcanvas-start {
+  width: 250px; /* default width */
+}
+
+/* On mobile devices, open only 30% of screen */
+@media (max-width: 991px) {
+  .offcanvas-start {
+    width: 30vw; /* 30% of viewport width */
+  }
+}
