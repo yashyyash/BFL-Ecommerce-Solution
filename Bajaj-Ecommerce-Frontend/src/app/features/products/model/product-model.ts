@@ -37,3 +37,8 @@ export interface ProductApiResponse {
   count: number;
   data: Product[];
 }
+
+export interface SingleProductResponse {
+  success: boolean;
+  data: Product;
+}

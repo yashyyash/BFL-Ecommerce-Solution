@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Input } from '@angular/core';
 import { ProductApiService } from '../../service/product-api-service';
 import { Product } from '../../model/product-model';
 import { CommonModule, DecimalPipe } from '@angular/common';
+import { ProductDetail } from '../product-detail/product-detail';
 
 @Component({
   selector: 'app-products-list',
@@ -11,14 +12,15 @@ import { CommonModule, DecimalPipe } from '@angular/common';
   imports: [
     CommonModule, // Provides NgFor, NgIf
     DecimalPipe,  // Provides number pipe
+    ProductDetail,
   ],
 })
 export class ProductsList implements OnInit {
   // Inject service using function injection
   private _productApi = inject(ProductApiService);
-
+  @Input() productId!: string;
   products: Product[] = [];
-
+  selectedProductId?: string;
   // Pagination
   currentPage: number = 1;
   totalPages: number = 20; // 200 products / 10 per page
@@ -47,5 +49,13 @@ export class ProductsList implements OnInit {
 
   loadPage(page: number) {
     this.loadProducts(page);
+  }
+
+  viewDetails(id: string) {
+  this.selectedProductId = id;
+  }
+
+  closeDetail() {
+    this.selectedProductId = undefined;
   }
 }
