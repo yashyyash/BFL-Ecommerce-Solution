@@ -5,11 +5,12 @@ import { Banner } from './shared/components/banner/banner';
 import { Footer } from './shared/components/footer/footer';
 import { Navbar } from "./shared/components/navbar/navbar";
 import { ProductsList } from "./features/products/components/products-list/products-list";
+import { CategoryList } from "./features/categories/components/categories-list/categories-list";
 
 
 @Component({
   selector: 'bajaj-root',
-  imports: [SideNavbar, Slider, Banner, Footer, Navbar, ProductsList],
+  imports: [SideNavbar, Slider, Banner, Footer, Navbar, ProductsList, CategoryList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
