@@ -1,0 +1,55 @@
+/* Base pagination styles */
+nav[aria-label="Page navigation example"] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+
+nav[aria-label="Page navigation example"] button {
+  min-width: 40px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+}
+
+/* Active and outline button colors */
+nav[aria-label="Page navigation example"] button.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+nav[aria-label="Page navigation example"] button.btn-outline-primary {
+  background-color: white;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+  nav[aria-label="Page navigation example"] {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.15rem;
+  }
+
+  nav[aria-label="Page navigation example"] button {
+    font-size: 0.75rem;
+    min-width: 30px;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  nav[aria-label="Page navigation example"] {
+    gap: 0.1rem;
+  }
+
+  nav[aria-label="Page navigation example"] button {
+    font-size: 0.7rem;
+    min-width: 25px;
+    padding: 0.2rem 0.4rem;
+  }
+}
