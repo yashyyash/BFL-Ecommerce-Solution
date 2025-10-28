@@ -11,7 +11,12 @@
             <div class="carousel-inner">
               @for (img of product.images; track img) {
                 <div class="carousel-item" [class.active]="product.images.indexOf(img) === 0">
-                  <img [src]="img" class="d-block w-100" [alt]="product.name" />
+                  <img [src]="img" class="d-block w-100" [alt]="product.name" style="height: 200px; object-fit: cover;" />
+                </div>
+              } @empty {
+                <!-- Fallback if there are no images -->
+                <div class="carousel-item active">
+                  <img src="https://placehold.co/600x400/eeeeee/aaaaaa?text=No+Image" class="d-block w-100" [alt]="product.name" style="height: 200px; object-fit: cover;" />
                 </div>
               }
             </div>
@@ -48,36 +53,55 @@
             }
           </div>
 
-          <div class="card-footer text-center">
-            <button class="btn btn-sm btn-outline-warning w-100" (click)="viewDetails(product._id)">View Details</button>
+          <!-- 
+            UPDATED BUTTONS SECTION:
+            - Single card-footer
+            - 'd-flex' and 'gap-2' for side-by-side layout
+            - 'flex-fill' to make buttons equal width
+            - 'btn-outline-success' for Add to Cart
+            - (click)="addToCart(product)" for Add to Cart
+          -->
+          <div class="card-footer d-flex gap-2">
+            <button class="btn btn-sm btn-outline-warning flex-fill" (click)="viewDetails(product._id)">
+              View Details
+            </button>
+            
+            <!-- FIXED: Added closing parenthesis ')' -->
+            <button class="btn btn-sm btn-outline-success flex-fill" (click)="addToCart(product)">
+              Add to Cart
+            </button>
           </div>
-          
+
         </div>
       </div>
     }
   </div>
+  
   <nav aria-label="Page navigation example" class="mt-4">
-  <button class="btn btn-sm btn-outline-primary me-1"
-          [disabled]="currentPage === 1"
-          (click)="loadPage(currentPage - 1)">
-    Previous
-  </button>
+    <button class="btn btn-sm btn-outline-primary me-1"
+            [disabled]="currentPage === 1"
+            (click)="loadPage(currentPage - 1)">
+      Previous
+    </button>
 
     @for(page of totalPagesArray; track page){
-    <button class="btn btn-sm me-1"
-            [class.btn-primary]="page === currentPage"
-            [class.btn-outline-primary]="page !== currentPage"
-            (click)="loadPage(page)">{{page}}
-    </button>
+      <button class="btn btn-sm me-1"
+              [class.btn-primary]="page === currentPage"
+              [class.btn-outline-primary]="page !== currentPage"
+              (click)="loadPage(page)">{{page}}
+      </button>
     } 
 
-  <button class="btn btn-sm btn-outline-primary ms-1"
-          [disabled]="currentPage === totalPages"
-          (click)="loadPage(currentPage + 1)">
-    Next
-  </button>
-</nav>
-</div>
+    <button class="btn btn-sm btn-outline-primary ms-1"
+            [disabled]="currentPage === totalPages"
+            (click)="loadPage(currentPage + 1)">
+      Next
+    </button>
+  </nav>
+</div> <!-- This closes div.container -->
+
+<!-- REMOVED: Extra '}' was here -->
+
 @if (selectedProductId) {
   <!-- <app-product-detail [productId]="selectedProductId"></app-product-detail> -->
     <div class="product-modal-backdrop" (click)="closeDetail()"></div>

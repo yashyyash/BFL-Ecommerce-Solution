@@ -5,6 +5,8 @@ import { CommonModule, DecimalPipe } from '@angular/common';
 import { ProductDetail } from '../product-detail/product-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Footer } from "../../../../shared/components/footer/footer";
+import { CartService } from '../../../cart/service/cart-service';
+
 
 @Component({
   selector: 'app-products-list',
@@ -22,6 +24,7 @@ export class ProductsList implements OnInit {
   // Inject service using function injection
   private _route = inject(ActivatedRoute);
   private _productApi = inject(ProductApiService);
+  private _cartService = inject(CartService);
   @Input() productId!: string;
   products: Product[] = [];
   selectedProductId?: string;
@@ -61,5 +64,12 @@ export class ProductsList implements OnInit {
 
   closeDetail() {
     this.selectedProductId = undefined;
+  }
+
+  // 6. Add this method to connect your button!
+  addToCart(product: Product): void {
+    this._cartService.addItem(product);
+    // Optional: Add a toast notification here to show it worked
+    console.log(`Added ${product.name} to cart!`);
   }
 }
