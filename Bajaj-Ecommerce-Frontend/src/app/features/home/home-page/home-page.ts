@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsList } from '../../products/components/products-list/products-list';
@@ -8,6 +8,7 @@ import { CategoryService } from '../../categories/service/category-service';
 import { Navbar } from "../../../shared/components/navbar/navbar";
 import { SliderComponent } from "../../../shared/components/slider/slider";
 import { Footer } from "../../../shared/components/footer/footer";
+import { CartPageComponent } from "../../cart/components/cart-page/cart-page";
 
 @Component({
   selector: 'app-home-page',
@@ -20,7 +21,9 @@ import { Footer } from "../../../shared/components/footer/footer";
     CategoryList,
     Navbar,
     SliderComponent,
-    Footer
+    Footer,
+    CartPageComponent,
+    RouterOutlet
 ],
 })
 
