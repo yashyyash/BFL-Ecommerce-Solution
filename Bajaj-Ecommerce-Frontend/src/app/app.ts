@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
-
+import { Footer } from './shared/components/footer/footer'; // Assuming you have this
+import { ToastComponent } from './shared/components/toast/toast';
 @Component({
   selector: 'app-root',
-  template: `
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-  `,
   standalone: true,
-  imports: [RouterModule, Navbar],
+  imports: [RouterOutlet, Navbar, Footer, ToastComponent], 
+  templateUrl: './app.html',
+  styleUrls: ['./app.css'],
 })
-export class AppComponent {}
+export class App {
+  title = 'Bajaj-Ecommerce-Frontend';
+}

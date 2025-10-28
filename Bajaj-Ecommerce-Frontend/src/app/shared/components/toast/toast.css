@@ -1,0 +1,22 @@
+.toast-container {
+  /* High z-index to ensure it's on top of everything */
+  z-index: 9999;
+  /* Adjust top positioning to be below your sticky navbar (if needed) */
+  top: 80px !important; 
+}
+
+/* This makes the toasts animate in */
+.toast.show {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

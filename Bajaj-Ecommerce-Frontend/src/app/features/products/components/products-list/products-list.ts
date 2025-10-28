@@ -6,6 +6,7 @@ import { ProductDetail } from '../product-detail/product-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Footer } from "../../../../shared/components/footer/footer";
 import { CartService } from '../../../cart/service/cart-service';
+import { ToastService } from '../../../../shared/services/toast';
 
 
 @Component({
@@ -22,6 +23,7 @@ import { CartService } from '../../../cart/service/cart-service';
 })
 export class ProductsList implements OnInit {
   // Inject service using function injection
+  private _toastService = inject(ToastService);
   private _route = inject(ActivatedRoute);
   private _productApi = inject(ProductApiService);
   private _cartService = inject(CartService);
@@ -69,7 +71,7 @@ export class ProductsList implements OnInit {
   // 6. Add this method to connect your button!
   addToCart(product: Product): void {
     this._cartService.addItem(product);
-    // Optional: Add a toast notification here to show it worked
+    this._toastService.add(`Added ${product.name} to cart!`, 'success');
     console.log(`Added ${product.name} to cart!`);
   }
 }
