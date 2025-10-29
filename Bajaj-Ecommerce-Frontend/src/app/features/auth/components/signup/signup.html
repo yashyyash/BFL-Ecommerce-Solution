@@ -1,0 +1,23 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Sign Up</legend>
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name">
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter email">
+      <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password" autocomplete="off">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+  </fieldset>
+</form>
