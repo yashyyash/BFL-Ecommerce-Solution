@@ -24,7 +24,7 @@ import { CartPageComponent } from "../../cart/components/cart-page/cart-page";
     Footer,
     CartPageComponent,
     RouterOutlet
-],
+  ],
 })
 
 export class HomePage implements OnInit {
@@ -40,10 +40,16 @@ export class HomePage implements OnInit {
     this.loadCategories();
   }
 
-  loadProducts() {
-    this._productApi.fetchProducts(1, 8).subscribe({
+  // loadProducts() {
+  //   this._productApi.fetchProducts(1, 8).subscribe({
+  //     next: res => this.products = res.data,
+  //     error: err => console.error(err)
+  //   });
+  // }
+  loadProducts(category?: string) {
+    this._productApi.fetchProducts(1, 8, category).subscribe({
       next: res => this.products = res.data,
-      error: err => console.error(err)
+      error: err => console.error('Error loading products:', err)
     });
   }
 
