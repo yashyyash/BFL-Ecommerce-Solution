@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnInit, inject } from '@angular
 import { CommonModule } from '@angular/common';
 import { ProductApiService } from '../../../products/service/product-api-service';
 import { Product } from '../../../products/model/product-model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-detail',
@@ -12,7 +13,8 @@ import { Product } from '../../../products/model/product-model';
 })
 export class CategoryDetail implements OnInit {
   private _productApi = inject(ProductApiService);
-
+  private router = inject(Router); // <-- 2. Inject the Router
+  private route = inject(ActivatedRoute); // <-- Keep this, you'll need it
   @Input() categoryId!: string;
   @Output() close = new EventEmitter<void>();
 
@@ -49,5 +51,8 @@ export class CategoryDetail implements OnInit {
   }
   closePopup() {
     this.close.emit();
+  }
+  goBackToCategories(): void {
+    this.router.navigate(['/categories']);
   }
 }
