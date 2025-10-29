@@ -1,77 +1,50 @@
- <nav class="navbar navbar-expand-lg bg-primary sticky-top" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/']">Bajaj E-Commerce</a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarColor01"
-      aria-controls="navbarColor01"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    > 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['/']"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             Home
           </a>
         </li>
 
         <li class="nav-item d-none d-lg-block">
-          <a
-            class="nav-link"
-            href="#"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#sideNavbar"
-            aria-controls="sideNavbar"
-          >All
-        </a>
+          <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#sideNavbar"
+            aria-controls="sideNavbar">All
+          </a>
         </li>
-        
+
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="categoriesDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
             <li><a class="dropdown-item" [routerLink]="['/categories']" routerLinkActive="active">Categories</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/categories/electronics']" routerLinkActive="active">Electronics</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/categories/fashion']" routerLinkActive="active">Fashion</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/categories/home-kitchen']" routerLinkActive="active">Home & Kitchen</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/categories/books']" routerLinkActive="active">Books</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/categories/sports']" routerLinkActive="active">Sports</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category', 'electronics']" routerLinkActive="active">Electronics</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category', 'fashion']" routerLinkActive="active">Fashion</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category', 'home-kitchen']" routerLinkActive="active">Home & Kitchen</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category', 'books']" routerLinkActive="active">Books</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/category', 'sports']" routerLinkActive="active">Sports</a>
+            </li>
           </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="productsDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Products
           </a>
           <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-             <li><a class="dropdown-item" [routerLink]="['/products']" routerLinkActive="active">Products</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/products']" routerLinkActive="active">Products</a></li>
             <li><a class="dropdown-item" [routerLink]="['/products/all']" routerLinkActive="active">All Products</a></li>
             <li><a class="dropdown-item" [routerLink]="['/products/top-rated']" routerLinkActive="active">Top Rated</a></li>
             <li><a class="dropdown-item" [routerLink]="['/products/new']" routerLinkActive="active">New Arrivals</a></li>
@@ -88,10 +61,10 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active">Profile</a>
         </li>
-         <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active">Sign-Up</a>
         </li>
-        @if(userRole$ === 'customer' | async){
+        @if((userRole$ | async) === 'customer'){
 
         }
       </ul>

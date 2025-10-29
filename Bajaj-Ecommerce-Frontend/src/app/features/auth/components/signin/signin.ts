@@ -19,11 +19,6 @@ export class Signin {
     password: ['', Validators.required]
   });
 
-  const credentials = {
-    email: this.signinForm.value.email!,
-    password: this.signinForm.value.password!
-  };
-
   onSubmit() {
     if (this.signinForm.valid) {
       const credentials = {
