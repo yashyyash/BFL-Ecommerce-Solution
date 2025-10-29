@@ -70,9 +70,10 @@
                 <span>${{ totalPrice() | number:'1.2-2' }}</span>
               </li>
             </ul>
-            <button class="btn btn-success w-100 mt-4">
+            <!-- <button class="btn btn-success w-100 mt-4">
               Proceed to Checkout
-            </button>
+            </button> -->
+            <a [routerLink]="['/checkout']" class="btn btn-success w-100 mt-4"> Proceed to Checkout</a>
             <p class="text-muted text-center small mt-2">
               You will be asked to sign in at the next step.
             </p>
