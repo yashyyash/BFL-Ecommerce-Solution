@@ -15,8 +15,8 @@ import { AuthUserService } from '../../../features/auth/service/auth-user-servic
 export class Navbar implements OnInit {
 
   private _authService = inject(AuthUserService);
-  protected isLoggedIn$ = this._authService.isLoggedIn$;
-  protected userRole$ = this._authService.userRole$;
+  protected isLoggedIn$ = this._authService.isLoggedIn;
+  protected userRole$ = this._authService.userRole;
 
   private _categoryApi = inject(CategoryService);
   categories: Category[] = [];

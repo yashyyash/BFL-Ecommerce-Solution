@@ -1,0 +1,67 @@
+/* --- Base Styles --- */
+
+/* Add padding and maybe a subtle border to the fieldset */
+fieldset {
+  padding: 1.5rem; /* Add some breathing room inside */
+  border: 1px solid #dee2e6; /* A light border */
+  border-radius: 0.25rem; /* Optional: slightly rounded corners */
+  margin-bottom: 2rem; /* Add space below the form */
+}
+
+legend {
+  /* Style the legend to stand out a bit */
+  font-size: 1.5rem; /* Make legend larger */
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Space below legend */
+  width: auto; /* Allow legend to size based on content */
+  padding: 0 0.5rem; /* Add horizontal padding */
+}
+
+/* Ensure buttons take full width on smaller screens for easier tapping */
+.btn {
+  width: 100%; /* Make button full width by default */
+}
+
+
+/* --- Media Queries --- */
+
+/* Phones in portrait & landscape (less than 768px) */
+@media (max-width: 767.98px) {
+  fieldset {
+    padding: 1rem; /* Slightly reduce padding on smaller screens */
+  }
+  legend {
+    font-size: 1.25rem; /* Slightly smaller legend */
+    margin-bottom: 1rem;
+  }
+}
+
+/* Tablets (768px and up) */
+@media (min-width: 768px) {
+  /* Allow button to size naturally on larger screens */
+  .btn {
+    width: auto; /* Let button size based on content */
+    min-width: 120px; /* Optional: set a minimum width */
+  }
+
+  fieldset {
+     padding: 2rem; /* Increase padding for larger screens */
+  }
+  legend {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Large devices (Desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Add desktop-specific layout adjustments if needed */
+  /* Example: Center the form container if it's not already */
+  /* .container { margin-left: auto; margin-right: auto; } */
+}
+
+/* Extra large devices (Large Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Add very large screen layout adjustments if needed */
+}
+

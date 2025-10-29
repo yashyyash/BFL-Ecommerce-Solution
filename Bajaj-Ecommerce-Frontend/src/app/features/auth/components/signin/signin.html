@@ -1,14 +1,26 @@
-<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-  <fieldset>
-    <legend>Sign In</legend>
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input formControlName="email" type="email" class="form-control" placeholder="Enter email">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Password</label>
-      <input formControlName="password" type="password" class="form-control" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary mt-3">Sign In</button>
-  </fieldset>
-</form>
+<div class="container mt-5" style="max-width: 500px;">
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend>Sign In</legend>
+      
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input formControlName="email" type="email" class="form-control" placeholder="Enter email">
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input formControlName="password" type="password" class="form-control" placeholder="Password">
+      </div>
+
+      @if (errorMessage) {
+        <div class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <button type="submit" [disabled]="signinForm.invalid" class="btn btn-primary mt-3">Sign In</button>
+    
+    </fieldset>
+  </form>
+</div>
