@@ -7,7 +7,7 @@ import { CategoryDetail } from './features/categories/components/category-detail
 import { AddToCart } from './features/cart/components/add-to-cart/add-to-cart';
 import { CartPageComponent } from './features/cart/components/cart-page/cart-page';
 import { CategoryList } from './features/categories/components/categories-list/categories-list';
-
+import { Signup } from './features/auth/components/signup/signup';
 
 export const routes: Routes = [
  { 
@@ -40,6 +40,11 @@ export const routes: Routes = [
   path: 'category/:id', 
   component: CategoryDetail, // <-- Changed
  title: 'Category Details'
+ },
+ {
+  path: 'signup',
+  loadComponent: () => import('./features/auth/components/signup/signup').then(m => m.Signup),
+  title: 'Sign-Up'
  },
  { 
   path: '**', 

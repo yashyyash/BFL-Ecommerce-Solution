@@ -4,15 +4,20 @@ import { CategoryService } from '../../../features/categories/service/category-s
 import { Category } from '../../../features/categories/model/category-model';
 import { SideNavbar } from "../side-navbar/side-navbar";
 import { RouterModule } from '@angular/router';
-
+import { AuthUserService } from '../../../features/auth/service/auth-user-service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, SideNavbar,RouterModule],
+  imports: [CommonModule, SideNavbar, RouterModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'],
 })
 export class Navbar implements OnInit {
+
+  private _authService = inject(AuthUserService);
+  protected isLoggedIn$ = this._authService.isLoggedIn$;
+  protected userRole$ = this._authService.userRole$;
+
   private _categoryApi = inject(CategoryService);
   categories: Category[] = [];
 

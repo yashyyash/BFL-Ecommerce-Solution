@@ -23,10 +23,22 @@ export class CategoryDetail implements OnInit {
     this.fetchCategoryProducts();
   }
 
+  // fetchCategoryProducts(): void {
+  //   this._productApi.fetchProducts().subscribe({
+  //     next: (res) => {
+  //       this.products = res.data.filter(p => p.categoryId?._id === this.categoryId);
+  //       this.isLoading = false;
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching products:', err);
+  //       this.isLoading = false;
+  //     },
+  //   });
+  // }
   fetchCategoryProducts(): void {
-    this._productApi.fetchProducts().subscribe({
+    this._productApi.fetchProducts(1, 8, this.categoryId).subscribe({
       next: (res) => {
-        this.products = res.data.filter(p => p.categoryId?._id === this.categoryId);
+        this.products = res.data;
         this.isLoading = false;
       },
       error: (err) => {
@@ -35,7 +47,6 @@ export class CategoryDetail implements OnInit {
       },
     });
   }
-
   closePopup() {
     this.close.emit();
   }
