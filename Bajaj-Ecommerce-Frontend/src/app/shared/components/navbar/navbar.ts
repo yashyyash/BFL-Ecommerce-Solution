@@ -29,6 +29,11 @@ export class Navbar implements OnInit {
       },
       error: (err) => console.error('Failed to load categories', err),
     });
+  } 
+
+  LoggedOut(): void {
+    this._authService.logout();
   }
+
 }
 

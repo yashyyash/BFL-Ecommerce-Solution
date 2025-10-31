@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     passwordHash: { type: String, required: true },
-    role: { type: String, enum: ["customer", "admin"], default: "customer" },
+    role: { type: String, enum: ["customer", "admin"]},
     phone: { type: String },
     addresses: [
       {

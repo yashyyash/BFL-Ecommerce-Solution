@@ -64,9 +64,17 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active">Sign-Up</a>
         </li>
-        @if((userRole$ | async) === 'customer'){
-
+        @if((userRole$ | async) === 'admin'){
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/categories']" routerLinkActive="active">Add-Category</a>
+        </li>
         }
+        @if((isLoggedIn$ |async)=== true){
+         <li class="nav-item">
+          <!-- <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active">Log-Out</a> -->
+           <a class="nav-link" (click)="LoggedOut()">Log-Out</a>
+        </li>
+      }
       </ul>
     </div>
   </div>
