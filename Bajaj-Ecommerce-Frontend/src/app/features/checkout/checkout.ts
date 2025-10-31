@@ -1,14 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Import RouterLink for the template
-import { Router, RouterLink } from '@angular/router'; 
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../cart/service/cart-service'; // Import CartService to clear cart
+// import { OrderService } from '../orders/order-service';
+
 
 @Component({
-  selector: 'app-checkout', 
+  selector: 'app-checkout',
   standalone: true,
   // Add RouterLink to imports
-  imports: [CommonModule, RouterLink], 
+  imports: [CommonModule, RouterLink],
   template: `
     <div class="container mt-5 text-center">
       @if (!paymentComplete) {
@@ -60,7 +62,7 @@ import { CartService } from '../cart/service/cart-service'; // Import CartServic
       margin: 2rem auto; /* Center the alert */
     }
   `]
-})
+}) 
 export class CheckoutComponent implements OnInit { // Class name is correct
   private router = inject(Router);
   public cartService = inject(CartService); 
@@ -94,3 +96,59 @@ export class CheckoutComponent implements OnInit { // Class name is correct
   }
 }
 
+
+// export class CheckoutComponent implements OnInit {
+//   private router = inject(Router);
+//   public cartService = inject(CartService);
+
+//   // constructor(private orderService: OrderService) { }
+
+//   paymentComplete = false;
+//   isProcessing = false;
+//   transactionId: string | null = null;
+
+//   ngOnInit(): void {
+//     // Optional: Fetch cart details here
+//   }
+
+//   processPayment(): void {
+//     this.isProcessing = true;
+//     console.log('Simulating payment processing...');
+
+//     const cart = this.cartService.loadCartFromStorage(); // Make sure this method exists and returns cart data
+
+//     this.simulateCheckout(cart);
+
+//     setTimeout(() => {
+//       this.transactionId = `TXN-${Date.now()}`;
+//       this.paymentComplete = true;
+//       this.isProcessing = false;
+
+//       this.cartService.clearCart(); // Ensure this method exists in CartService
+
+//       setTimeout(() => {
+//         this.router.navigate(['/']);
+//       }, 5000);
+//     }, 2000);
+//   }
+
+  // simulateCheckout(cart: any): void {
+  //   const orderPayload = {
+  //     userId: '6902dc69f7c062b5bda7208b',
+  //     cartItems: this.cartService.loadCartFromStorage(), // assuming this returns an array of items
+  //     shippingAddress: {
+  //       street: '123 Main St',
+  //       city: 'Pune',
+  //       state: 'MH',
+  //       postalCode: '411001',
+  //       country: 'India'
+  //     },
+  //     paymentMethod: 'COD', // or 'Credit Card', etc.
+  //     totalAmount: 12345.67
+  //   };
+
+  //   this.orderService.PosttoDB(cart).subscribe({
+  //     next: (res) => console.log('Payment successful!', res),
+  //     error: (err) => console.error('Payment failed!', err),
+  //   });
+  // }
