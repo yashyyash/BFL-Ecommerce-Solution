@@ -32,7 +32,7 @@ export class CartService {
     });
   }
 
-  private loadCartFromStorage(): void {
+  public loadCartFromStorage(): void {
     try {
       const storedCart = localStorage.getItem(this.CART_STORAGE_KEY);
       if (storedCart) {

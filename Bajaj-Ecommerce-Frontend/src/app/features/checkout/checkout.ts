@@ -1,14 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Import RouterLink for the template
-import { Router, RouterLink } from '@angular/router'; 
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../cart/service/cart-service'; // Import CartService to clear cart
+// import { OrderService } from '../orders/order-service';
+
 
 @Component({
-  selector: 'app-checkout', 
+  selector: 'app-checkout',
   standalone: true,
   // Add RouterLink to imports
-  imports: [CommonModule, RouterLink], 
+  imports: [CommonModule, RouterLink],
   template: `
     <div class="container mt-5 text-center">
       @if (!paymentComplete) {
@@ -60,7 +62,7 @@ import { CartService } from '../cart/service/cart-service'; // Import CartServic
       margin: 2rem auto; /* Center the alert */
     }
   `]
-})
+}) 
 export class CheckoutComponent implements OnInit { // Class name is correct
   private router = inject(Router);
   public cartService = inject(CartService); 
