@@ -76,4 +76,6 @@ ng g c features/auth/components/register
 ng g c features/auth/components/forgot-password 
 # --- Routing File ---
 # This file will define the routes for /login, /register, etc.
-touch src/app/features/auth/auth.routes.ts
+notepad src/app/features/auth/auth.routes.ts
+
+app.routes.ts in the src/app/
