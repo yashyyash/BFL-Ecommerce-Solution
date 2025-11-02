@@ -1,0 +1,79 @@
+[PRODUCT]
+ng g s features/products/services/product 
+ng g i features/products/models/product
+ng g c features/products/components/product-list 
+ng g c features/products/components/product-detail 
+notepad src/app/features/products/product.routes.ts
+
+[CATEGORY]
+ng g s features/categories/services/category 
+ng g i features/categories/models/category
+ng g c features/categories/components/category-list 
+notepad src/app/features/categories/category.routes.ts
+
+[USERS]
+# Service for user-related API calls (get all users, get user by ID, update profile)
+ng g s features/users/services/user 
+ng g i features/users/models/user
+
+# --- Components for Customers ---
+ng g c features/users/components/profile 
+ng g c features/users/components/address-manager 
+
+# --- Components for Admin/Agent ---
+ng g c features/users/components/user-list 
+ng g c features/users/components/user-detail 
+ng g c features/users/components/user-form 
+
+notepad src/app/features/users/user.routes.ts
+
+[CART]
+ng g s features/carts/services/cart 
+ng g i features/carts/models/cart
+ng g c features/carts/components/cart-view 
+notepad src/app/features/carts/cart.routes.ts
+
+[ORDERS]
+ng g s features/orders/services/order 
+ng g i features/orders/models/order
+ng g c features/orders/components/order-list 
+ng g c features/orders/components/order-detail 
+notepad src/app/features/orders/order.routes.ts
+
+[REVIEW]
+ng g s features/reviews/services/review 
+ng g i features/reviews/models/review
+ng g c features/reviews/components/review-list 
+ng g c features/reviews/components/review-form 
+
+[SHARED]
+ng g c core/components/layout/navbar 
+ng g c core/components/layout/footer 
+ng g c core/components/layout/side-navbar 
+
+[CORE]
+# We move AuthService here, as it's a singleton needed by guards/interceptors
+ng g s core/services/auth 
+# --- Guards (as you requested) ---
+# Checks if a user is logged in at all (isAuthenticated)
+ng g guard core/guards/auth 
+# Checks if the user has the 'admin' role
+ng g guard core/guards/admin 
+# Checks if the user has the 'agent' role
+ng g guard core/guards/agent 
+# Checks if the user has the 'customer' role
+ng g guard core/guards/customer 
+# --- Interceptors (as you requested) ---
+# Attaches the "Bearer <token>" to outgoing HTTP requests
+ng g interceptor core/interceptors/jwt 
+# Catches 401/403 errors and logs the user out or redirects to login
+ng g interceptor core/interceptors/error 
+
+[Auth]
+# --- UI Components ---
+ng g c features/auth/components/login 
+ng g c features/auth/components/register 
+ng g c features/auth/components/forgot-password 
+# --- Routing File ---
+# This file will define the routes for /login, /register, etc.
+touch src/app/features/auth/auth.routes.ts
